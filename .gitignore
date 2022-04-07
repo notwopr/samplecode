@@ -1,0 +1,10 @@
+venv
+*.pyc
+staticfiles
+.env
+pythonoutput
+pythontestrunoutput
+env
+__pycache__
+AUTHFILE.py
+*.zip
