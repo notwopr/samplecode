@@ -27,7 +27,7 @@ import pandas as pd
 
 def stockpriceretrieval(stock, start_date, end_date):
     # SET PRICE URL
-    stockpriceurl = f'https://api.tiingo.com/tiingo/daily/{stock}/prices?token=ea0e9806c6cf888517ed0a6e99527f6f5b0467ad&startDate={start_date}&endDate={end_date}&resampleFreq=daily&format=json&columns=date,adjClose'
+    stockpriceurl = f'https://api.tiingo.com/tiingo/daily/{stock}/prices?token=<apikey>&startDate={start_date}&endDate={end_date}&resampleFreq=daily&format=json&columns=date,adjClose'
     # RETRIEVE PRICES
     prices = rq.get(stockpriceurl)
     # PARSE PRICES
@@ -45,7 +45,7 @@ def stockpriceretrieval(stock, start_date, end_date):
 # retrieve marketcap data for a stock
 def getindexofavailablefundamentals(savedir):
     # SET marketcap URL
-    endpointsindex = 'https://api.tiingo.com/tiingo/fundamentals/definitions?token=ea0e9806c6cf888517ed0a6e99527f6f5b0467ad'
+    endpointsindex = 'https://api.tiingo.com/tiingo/fundamentals/definitions?token=<apikey>'
     endpointslist = rq.get(endpointsindex).json()
     endpointsindexdf = pd.DataFrame(data=endpointslist)
     # save?
@@ -60,7 +60,7 @@ def getindexofavailablefundamentals(savedir):
 # get ticker list of all tickers with fundamentals available
 def gettickerswithavailablefundamentals(savedir):
     # SET marketcap URL
-    endpointsindex = 'https://api.tiingo.com/tiingo/fundamentals/meta?token=ea0e9806c6cf888517ed0a6e99527f6f5b0467ad'
+    endpointsindex = 'https://api.tiingo.com/tiingo/fundamentals/meta?token=<apikey>'
     endpointslist = rq.get(endpointsindex).json()
     endpointsindexdf = pd.DataFrame(data=endpointslist)
     # save?
@@ -75,7 +75,7 @@ def gettickerswithavailablefundamentals(savedir):
 # retrieve marketcap data for a stock
 def marketcapretrieval(stock, start_date, end_date):
     # SET marketcap URL
-    dailymarketcapurl = f'https://api.tiingo.com/tiingo/fundamentals/{stock}/daily?token=ea0e9806c6cf888517ed0a6e99527f6f5b0467ad&startDate={start_date}&endDate={end_date}'
+    dailymarketcapurl = f'https://api.tiingo.com/tiingo/fundamentals/{stock}/daily?token=<apikey>&startDate={start_date}&endDate={end_date}'
     # RETRIEVE PRICES
     marketcapdata = rq.get(dailymarketcapurl)
     # PARSE PRICES
@@ -104,7 +104,7 @@ def filterlistofdicts(statementdata, statementtype, datacode):
 # retrieve fundamental data for a stock
 def fundamentalretrieval(stock, start_date, end_date, includeannual, asreporteddating):
     # SET fundamental URL
-    fundamentalurl = f'https://api.tiingo.com/tiingo/fundamentals/{stock}/statements?token=ea0e9806c6cf888517ed0a6e99527f6f5b0467ad&startDate={start_date}&endDate={end_date}&asReported={asreporteddating}'
+    fundamentalurl = f'https://api.tiingo.com/tiingo/fundamentals/{stock}/statements?token=<apikey>&startDate={start_date}&endDate={end_date}&asReported={asreporteddating}'
     # RETRIEVE fundamental
     fundydata = rq.get(fundamentalurl)
     # PARSE fundamental
