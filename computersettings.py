@@ -52,7 +52,7 @@ class ComputerSystem():
         self.strattester_testruns = Path(f'{self.dump_predicate}/STRATTESTER/STRATTESTER_TESTRUNS')
         self.strattester_stockperfreports = Path(f'{self.dump_predicate}/STRATTESTER/STRATTESTER_STOCKPERFREPORTS')
         self.strattester_allperiodstatdf = Path(f'{self.dump_predicate}/STRATTESTER/STRATTESTER_ALLPERIODSTATDF')
-        self.auth = Path(f'{self.dump_predicate}/AUTH')
+        self.auth = Path(<authpath>)
         #self.bot_report = Path(f'{self.report_predicate}/Google Drive/Goals/Careers/Business/Good Business Ideas/Fund Business/Investment Strategy Research/BOT_REPORTS')
 
 
